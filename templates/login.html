@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+<br>
+<br>
+
+
+    
+    <div  class="login">
+      {% for message in messages %}
+  
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      
+      {% endfor %}
+      <form class='signinform' action="/auth/login/" method="post">{% csrf_token %}
+        <h2 class='signinh2'>Log In</h2>
+        <label class='signinlabel' for="email">Email</label>
+        <input class='signininput' type="email" name="email" id="email">
+        <label class='signinlabel' for="pass1">password</label>
+        <input class='signininput' type="password" name="pass1" id="pass1">
+        
+        <button class='signinbutton' type="submit">Log In</button>
+        <hr>
+        <span>Forget Password ?<a href="/auth/request-reset-email/"> Reset</a></span>
+       
+         <span>New User ? <a href="/auth/signup/">Signup</a></span>
+
+        
+        
+      </form>
+    </div>
+{% comment %} </div> {% endcomment %}
+
+
+
+
+
+
+
+
+{% endblock content %}

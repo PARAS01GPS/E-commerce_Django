@@ -1,0 +1,12 @@
+{% autoescape off %}
+
+Hi {{user.username}}
+please Click This Link below to varify your account
+
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+
+{% endautoescape %}
+
+
+
